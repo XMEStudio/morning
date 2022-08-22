@@ -25,6 +25,11 @@ def get_weather():
   weather = res['data']['list'][0]
   return weather['weather'], math.floor(weather['temp'])
 
+def get_week():
+  week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+  week = week_list[d.isoweekday() - 1]  # 获取当前日期时间
+  return week
+
 def get_today():
   year = datetime.now().year
   month = datetime.now().month
@@ -56,6 +61,6 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, temperature = get_weather()
-data ={"weather":{"value":wea},"city":{"value":city},"today":{"value":get_today()},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
+data ={"weather":{"value":wea},"city":{"value":city},"week":{"value":get_get_week()},"today":{"value":get_today()},"temperature":{"value":temperature},"love_days":{"value":get_count()},"birthday_left":{"value":get_birthday()},"words":{"value":get_words(), "color":get_random_color()}}
 res = wm.send_template(user_id, template_id, data)
 print(res)
