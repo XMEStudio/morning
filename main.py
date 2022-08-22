@@ -27,7 +27,8 @@ def get_weather():
 
 def get_week():
   week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-  week = week_list[d.isoweekday() - 1]  # 获取当前日期时间
+  d = datetime.today()  # 获取当前日期时间
+  week = week_list[d.isoweekday() - 1]
   return week
 
 def get_today():
