@@ -29,7 +29,7 @@ def get_today():
   year = datetime.now().year
   month = datetime.now().month
   day = datetime.now().day
-  delta = year + "-" + month + "-" + day
+  delta = str(year) + "-" + str(month) + "-" + str(day)
   return delta
 
 def get_count():
