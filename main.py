@@ -1,4 +1,4 @@
-from datetime import date, datetime,  time
+from datetime import date, datetime
 import math
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage, WeChatTemplate
@@ -25,7 +25,7 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_today():
-  delta = time.strftime("%Y-%m-%d", time.localtime())
+  delta = datetime.datetime.now().year-datetime.datetime.now().month-datetime.datetime.now().day
   return delta
 
 def get_count():
