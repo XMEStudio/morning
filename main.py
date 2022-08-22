@@ -5,6 +5,7 @@ from wechatpy.client.api import WeChatMessage, WeChatTemplate
 import requests
 import os
 import random
+import time
 
 today = datetime.now()
 year = datetime.now().year
@@ -32,10 +33,7 @@ def get_week():
   return week
 
 def get_today():
-  year = datetime.datetime.now().year
-  month = datetime.datetime.now().month
-  day = datetime.datetime.now().day
-  delta = str(year) + "-" + str(month) + "-" + str(day)
+  delta = time.strftime("%Y-%m-%d", time.localtime())
   return delta
 
 def get_count():
