@@ -32,9 +32,9 @@ def get_week():
   return week
 
 def get_today():
-  year = datetime.now().year
-  month = datetime.now().month
-  day = datetime.now().day
+  year = datetime.datetime.now().year
+  month = datetime.datetime.now().month
+  day = datetime.datetime.now().day
   delta = str(year) + "-" + str(month) + "-" + str(day)
   return delta
 
