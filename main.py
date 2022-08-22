@@ -26,7 +26,10 @@ def get_weather():
   return weather['weather'], math.floor(weather['temp'])
 
 def get_today():
-  delta = datetime.now().year + "-" + datetime.now().month + "-" + datetime.now().day
+  year = datetime.now().year
+  month = datetime.now().month
+  day = datetime.now().day
+  delta = year + "-" + month + "-" + day
   return delta
 
 def get_count():
