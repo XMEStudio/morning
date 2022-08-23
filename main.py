@@ -24,7 +24,7 @@ def get_weather():
   url = "http://autodev.openspeech.cn/csp/api/v2.1/weather?openId=aiuicus&clientType=android&sign=android&city=" + city
   res = requests.get(url).json()
   weather = res['data']['list'][0]
-  return weather['weather'], str(math.floor(weather['temp'])) + '℃', math.floor(weather['high'])), math.floor(weather['low']))
+  return weather['weather'], str(math.floor(weather['temp'])) + '℃', math.floor(weather['high']), math.floor(weather['low'])
 
 def get_week():
   week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
