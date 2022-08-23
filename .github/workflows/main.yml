@@ -2,7 +2,9 @@ name: morning
 on:
   schedule:
 # - cron: '20/15 * * * *'
-  - cron: '0,5,15,20,25,30,35,50,55 * * * ?'
+# - cron: '0,5,15,20,25,30,35,50,55 * * * ?'
+  - cron: '* 0/1 * * ?'
+
   workflow_dispatch:
 
 jobs:
