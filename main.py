@@ -16,8 +16,11 @@ birthday = os.environ['BIRTHDAY']
 app_id = os.environ["APP_ID"]
 app_secret = os.environ["APP_SECRET"]
 
-user_id = os.environ["USER_ID"]
+user_ids = os.environ["USER_ID"].split("\n")
 template_id = os.environ["TEMPLATE_ID"]
+
+# user_id = os.environ["USER_ID"]
+# template_id = os.environ["TEMPLATE_ID"]
 
 
 def get_weather():
@@ -61,5 +64,11 @@ client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 wea, temperature, highest, lowest = get_weather()
 data ={"weather":{"value":wea,"color":get_random_color()},"temperature":{"value":temperature,"color":get_random_color()},"highest":{"value":highest,"color":get_random_color()},"lowest":{"value":lowest,"color":get_random_color()},"city":{"value":city,"color":get_random_color()},"week":{"value":get_week(),"color":get_random_color()},"today":{"value":get_today(),"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}}
-res = wm.send_template(user_id, template_id, data)
-print(res)
+# res = wm.send_template(user_id, template_id, data)
+# print(res)
+count = 0
+for user_id in user_ids:
+  res = wm.send_template(user_id, template_id, data)
+  count+=1
+
+print("发送了" + str(count) + "条消息")
