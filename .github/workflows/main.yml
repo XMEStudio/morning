@@ -6,7 +6,7 @@ on:
 
     # 分、小时、天、月、周
     - cron: '06 01 * * *'
-
+    
   workflow_dispatch:
 
 jobs:
