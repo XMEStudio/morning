@@ -63,7 +63,7 @@ client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
 wea, tem, tem1, tem2 = get_weather()
-data ={"wea":{"value":wea,"color":get_random_color()},"tem":{"value":tem,"color":get_random_color()},"tem1":{"value":tem1,"color":get_random_color()},"tem2":{"value":tem2,"color":get_random_color()},"city":{"value":city,"color":get_random_color()},"week":{"value":get_week(),"color":get_random_color()},"today":{"value":get_today(),"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}}
+data ={"weather":{"value":wea,"color":get_random_color()},"temperature":{"value":tem,"color":get_random_color()},"highest":{"value":tem1,"color":get_random_color()},"tem2":{"value":lowest,"color":get_random_color()},"city":{"value":city,"color":get_random_color()},"week":{"value":get_week(),"color":get_random_color()},"today":{"value":get_today(),"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}}
 # res = wm.send_template(user_id, template_id, data)
 # print(res)
 count = 0
