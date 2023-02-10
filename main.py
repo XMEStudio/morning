@@ -27,7 +27,7 @@ def get_weather():
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v62&appid=56133813&appsecret=RMDuCu8j&city=" + city
   res = requests.get(url).json()
   weather = res
-  return str(weather['wea']), str(weather['tem']) + ' ℃', str(weather['tem1']) + ' ℃', str(weather['tem2'])+ ' ℃'
+  return weather['wea'], weather['tem'] + ' ℃', weather['tem1'] + ' ℃', weather['tem2'] + ' ℃'
 
 def get_week():
   week_list = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
@@ -62,7 +62,7 @@ def get_random_color():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-wea, tem, highest, lowest = get_weather()
+wea, tem, tem1, tem2 = get_weather()
 data ={"weather":{"value":wea,"color":get_random_color()},"temperature":{"value":tem,"color":get_random_color()},"highest":{"value":tem1,"color":get_random_color()},"lowest":{"value":tem2,"color":get_random_color()},"city":{"value":city,"color":get_random_color()},"week":{"value":get_week(),"color":get_random_color()},"today":{"value":get_today(),"color":get_random_color()},"love_days":{"value":get_count(),"color":get_random_color()},"birthday_left":{"value":get_birthday(),"color":get_random_color()},"words":{"value":get_words(), "color":get_random_color()}}
 # res = wm.send_template(user_id, template_id, data)
 # print(res)
