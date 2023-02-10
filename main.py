@@ -26,7 +26,7 @@ template_id = os.environ["TEMPLATE_ID"]
 def get_weather():
   url = "https://v0.yiketianqi.com/api?unescape=1&version=v62&appid=56133813&appsecret=RMDuCu8j&city=" + city
   res = requests.get(url).json()
-  weather = res()
+  weather = res
   return weather['wea'], str(math.floor(weather['tem'])) + ' ℃', str(math.floor(weather['tem1'])) + ' ℃', str(math.floor(weather['tem2'])) + ' ℃'
 
 def get_week():
